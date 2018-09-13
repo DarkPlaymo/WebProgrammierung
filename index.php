@@ -92,20 +92,5 @@
     <p class="text" id="footnote_1"><small><sup>1</sup> Dateien: <samp>index.php</samp> und <samp>MAMP-PRO-Logo.png</samp></small></p>
     <hr />
     <p class="text">This page in: <?php echo $str_available_languages; ?></p>
-
-<?php elseif ($str_language == 'en'): ?>
-
-    <p class="text"><strong>The virtual host was set up successfully.</strong></p>
-    <p class="text">If you can see this page, your new virtual host was set up successfully. Now, web content can be added and this placeholder page<sup><a href="#footnote_1">1</a></sup> should be replaced or deleted.</p>
-    <p class="text">
-        Server name: <samp><?php echo $_SERVER['SERVER_NAME']; ?></samp><br />
-        Document root: <samp><?php echo $_SERVER['DOCUMENT_ROOT']; ?></samp>
-    </p>
-    <p class="text" id="footnote_1"><small><sup>1</sup> Files: <samp>index.php</samp> and <samp>MAMP-PRO-Logo.png</samp></small></p>
-    <hr />
-    <p class="text">Diese Seite auf: <?php echo $str_available_languages; ?></p>
-
-<?php endif; ?>
-
 </body>
 </html>
