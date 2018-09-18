@@ -8,11 +8,11 @@
     <title>Burger-Love</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="script.js"> </script>
+    <script src="script.js"></script>
 </head>
 
 <body>
-
+    
     <!-- Navigation Bar -->
     <div class="navbar">
         <button class="btn" onClick="openNav()"><i class="fa fa-bars"></i></button>
