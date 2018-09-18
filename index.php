@@ -23,6 +23,7 @@
     <!-- Header -->
     <div class="header">
         <h1>My Website</h1>
+        <h2>Test</h2>
         <p>With a <b>flexible</b> layout.</p>
     </div>
 
