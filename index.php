@@ -6,17 +6,23 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Burger-Love</title>
-    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"> </script>
 </head>
 
 <body>
 
     <!-- Navigation Bar -->
     <div class="navbar">
-        <a href="#">Link</a>
-        <a href="#">Link</a>
-        <a href="#">Link</a>
-        <a href="#">Link</a>
+        <span onClick="openNav()"> open </span>
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
     </div>
 
 
