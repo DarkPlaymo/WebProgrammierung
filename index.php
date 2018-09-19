@@ -12,13 +12,8 @@
 </head>
 
 <body>
-    
     <!-- Navigation Bar -->
-    <div class="navbar">
-        <button class="btn" onClick="openNav()"><i class="fa fa-bars"></i></button>
-    </div>
-
-    <div id="mySidenav" class="sidenav">
+    <div class="sidenav" id="mySideNav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="index.php?site=home">Home</a>
         <a href="index.php?site=bestellen">Bestellen</a>
@@ -27,22 +22,28 @@
     
 
     <!-- Header -->
+    
     <div class="header">
-        <?php 
-            switch($_GET['site']){
-                case "home": 
-                    echo "<h2> Das ist die Home-Seite </h2>"; 
-                    break;
-                case "bestellen": 
-                    echo "<h2> Hier kann man bestellen </h2>"; 
-                    break;
-                case null: 
-                    echo "<h2> Startseite </h2>"; 
-                    break;
-                default: 
-                    echo "<h2> Oops, something went wrong </h2>";
-            }
-        ?>
+        <div class="headerbar">
+            <button class="btn" onClick="openNav()"><i class="fa fa-bars"></i></button>
+        </div>
+        <div class="headerlogo">
+            <?php 
+                switch($_GET['site']){
+                    case "home": 
+                        echo "<h2> Das ist die Home-Seite </h2>"; 
+                        break;
+                    case "bestellen": 
+                        echo "<h2> Hier kann man bestellen </h2>"; 
+                        break;
+                    case null: 
+                        echo "<h2> Startseite </h2>"; 
+                        break;
+                    default: 
+                        echo "<h2> Oops, something went wrong </h2>";
+                }
+            ?>
+        </div>
     </div>
 
     <!-- Main Content -->
