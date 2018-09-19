@@ -97,25 +97,9 @@ body {
     color: rgb(255, 255, 255);
 }
 
-/* Column container */
-.row {  
-    display: flex;
-    flex-wrap: wrap;
-}
-
-/* Create two unequal columns that sits next to each other */
-/* Sidebar/left column */
-.side {
-    flex: 30%;
-    background-color: #f1f1f1;
-    padding: 20px;
-}
-
 /* Main column */
 .main {
-    flex: 70%;
-    background-color: white;
-    padding: 20px;
+    background-color: #f1f1f1;
 }
 
 /* Fake image, just for this example */
@@ -164,3 +148,41 @@ hr {
     margin-left: 90px;
     line-height: 140%;
 }
+
+/* Set height of body and the document to 100% to enable "full page tabs" */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial;
+  }
+  
+  /* Style tab links */
+  .tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 20%;
+  }
+  
+  .tablink:hover {
+    background-color: #777;
+  }
+  
+  /* Style the tab content (and add height:100% for full page content) */
+  .tabcontent {
+    color: black;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+  }
+  
+  #Vorspeise {background-color: lightcoral;}
+  #Hauptspeise {background-color: lightgreen;}
+  #Dessert {background-color: lightblue;}
+  #Getränke {background-color: lightyellow;}
+  #Warenkorb {background-color: lightslategray;}

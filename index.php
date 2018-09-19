@@ -8,7 +8,7 @@
     <title>Burger-Love</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="script.js"></script>
+    <script src="js/sideNav.js"></script>
 </head>
 
 <body>
@@ -20,48 +20,34 @@
 
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
-    </div>
-
-
-    <!-- Header -->
-    <div class="header">
-        <h1>My Website</h1>
-        <h2>Test</h2>
-        <p>With a <b>flexible</b> layout.</p>
+        <a href="index.php?site=home">Home</a>
+        <a href="index.php?site=bestellen">Bestellen</a>
     </div>
 
     
 
-    <!-- The flexible grid (content) -->
-    <div class="row">
-        <div class="side">
-            <h2>About Me</h2>
-            <h5>Photo of me:</h5>
-            <div class="fakeimg" style="height:200px;">Image</div>
-            <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-            <h3>More Text</h3>
-            <p>Lorem ipsum dolor sit ame.</p>
-            <div class="fakeimg" style="height:60px;">Image</div><br>
-            <div class="fakeimg" style="height:60px;">Image</div><br>
-            <div class="fakeimg" style="height:60px;">Image</div>
-        </div>
-        <div class="main">
-            <h2>TITLE HEADING</h2>
-            <h5>Title description, Dec 7, 2017</h5>
-            <div class="fakeimg" style="height:200px;">Image</div>
-            <p>Some text..</p>
-            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-            <br>
-            <h2>TITLE HEADING</h2>
-            <h5>Title description, Sep 2, 2017</h5>
-            <div class="fakeimg" style="height:200px;">Image</div>
-            <p>Some text..</p>
-            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-        </div>
+    <!-- Header -->
+    <div class="header">
+        <?php 
+            switch($_GET['site']){
+                case "home": 
+                    echo "<h2> Das ist die Home-Seite </h2>"; 
+                    break;
+                case "bestellen": 
+                    echo "<h2> Hier kann man bestellen </h2>"; 
+                    break;
+                case null: 
+                    echo "<h2> Startseite </h2>"; 
+                    break;
+                default: 
+                    echo "<h2> Oops, something went wrong </h2>";
+            }
+        ?>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+        <?php include("php/" . $_GET['site'] . ".php") ?>
     </div>
 
     <!-- Footer -->
