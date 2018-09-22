@@ -80,7 +80,7 @@ body {
 }
 .sidenav .closebtn {
     position: absolute;
-    top: 0;
+    top: 0px;
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
@@ -108,11 +108,44 @@ background-color: #777;
 color: black;
 display: none;
 padding: 100px 20px;
-height: 100%;
+height: 375px;
 }
-
 #Vorspeise {background-color: lightcoral;}
 #Hauptspeise {background-color: lightgreen;}
 #Dessert {background-color: lightblue;}
 #Getränke {background-color: lightyellow;}
 #Warenkorb {background-color: lightslategray;}
+
+/*   ~~~ Cookie-Banner ~~~   */
+#cookie-law { 
+    background:#EEEADD;
+}
+#cookie-law p { 
+    padding:10px; 
+    font-size:1.2em; 
+    font-weight:bold; 
+    text-align:center; 
+    color:#682008; 
+    margin:0;
+}
+cookie a {
+    padding: 8px 8px 8px 8px;
+    text-decoration: none;
+    font-size: 10px;
+    color: black;
+    background-color: #EEEADD;
+    display: block;
+    transition: 0.3s;
+}
+cookie a:hover {
+    color: #333;
+}
+cookie .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 20px;
+    margin-left: 50px;
+    background-color: #EEEADD;
+    color: black;
+}
