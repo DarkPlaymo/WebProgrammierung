@@ -19,4 +19,6 @@ function openPage(pageName, elmnt, color) {
     elmnt.style.backgroundColor = color;
 }
 
-window.onload = function () { document.getElementById("defaultOpen").click(); }
+window.onload = function () { 
+        document.getElementById("defaultOpen").click(); 
+}

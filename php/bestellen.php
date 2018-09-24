@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,10 +14,13 @@
             <button class="tablink" onclick="openPage('Dessert', this, 'blue')">Dessert</button>
             <button class="tablink" onclick="openPage('Getränke', this, 'orange')">Getränke</button>
             <button class="tablink" onclick="openPage('Warenkorb', this, 'grey')">Warenkorb</button>
+            
 
             <div id="Vorspeise" class="tabcontent">
-                <h3>Vorspeise</h3>
-                <p>Liste der Vorspeisen</p>
+                <?php 
+                    $_SESSION["type"] = "Vorspeise";
+                    include ("speisekarte.php") ?>
+                
             </div>
 
             <div id="Hauptspeise" class="tabcontent">
