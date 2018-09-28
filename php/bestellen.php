@@ -1,8 +1,9 @@
-<?php session_start(); ?>
+<?php session_start(); 
+$_SESSION['Waren'] = 0;?>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1;text/html; charset=utf-8">
         <link rel="stylesheet" href="../styles.css">
         <script src="../js/tabcontent.js"></script>
     </head>
@@ -13,29 +14,35 @@
             <button class="tablink" onclick="openPage('Hauptspeise', this, 'green')">Hauptspeise</button>
             <button class="tablink" onclick="openPage('Dessert', this, 'blue')">Dessert</button>
             <button class="tablink" onclick="openPage('Getränke', this, 'orange')">Getränke</button>
-            <button class="tablink" onclick="openPage('Warenkorb', this, 'grey')">Warenkorb</button>
+            <button class="tablink" onclick="openPage('Warenkorb', this, 'grey')" id=btnWarenkorb>Warenkorb (0)</button>
             
 
             <div id="Vorspeise" class="tabcontent">
                 <?php 
-                    $_SESSION["type"] = "Vorspeise";
-                    include ("speisekarte.php") ?>
-                
+                    $_SESSION["Typ"] = "Vorspeise";
+                    include("speisekarte.php");
+                ?>
             </div>
 
             <div id="Hauptspeise" class="tabcontent">
-                <h3>Hauptspeise</h3>
-                <p>Liste der Hauptspeisen</p> 
+                <?php 
+                    $_SESSION["Typ"] = "Hauptspeise";
+                    include("speisekarte.php");
+                ?>
             </div>
 
             <div id="Dessert" class="tabcontent">
-                <h3>Dessert</h3>
-                <p>Liste der Nachspeisen</p>
+                <?php 
+                    $_SESSION["Typ"] = "Dessert";
+                    include("speisekarte.php");
+                ?>
             </div>
 
             <div id="Getränke" class="tabcontent">
-                <h3>Getränke</h3>
-                <p>Liste der Getränke</p>
+                <?php 
+                    $_SESSION["Typ"] = "Getraenke";
+                    include("speisekarte.php");
+                ?>
             </div>
 
             <div id="Warenkorb" class="tabcontent">

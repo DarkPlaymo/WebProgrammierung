@@ -2,34 +2,48 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1;text/html; charset=utf-8">
+        <link rel="stylesheet" href="../styles.css">
+        <script src="../js/tabcontent.js"></script>
+        <script src="../js/accordion.js"></script>
+        <script src="../js/buy.js"></script>
     </head>
 
     <body>  
-        <?php 
-            $pdo = new PDO('mysql:host=localhost; dbname=_____', 'username', 'password');
+        <h2> Hallo </h2>
+        <h2> <?php echo $_SESSION["Typ"] ?> </h2>
+        
+        <?php   
+            $type = $_SESSION['Typ'];
+            $pdo = new PDO('mysql:host=127.0.0.1;port=3307;dbname=datenbank', 'root', 'root');
+        
+            $sqlAccordion =  "SELECT DISTINCT accordion FROM `speisekarte` WHERE typ='$type'";
 
-            $SQLUntertypen =  "SELECT Untertypen FROM Speisen WHERE typ=$_SESSION['type']";
-            
-            foreach ($pdo->query($SQLUntertypen) as $Untertyp) : 
-                $SQLProdukte = "SELECT Produkt, Preis FROM Speisen WHERE typ=$_SESSION[type] AND untertyp=$Untertyp" 
-        ?>
+            foreach ($pdo->query($sqlAccordion) as $AccordionRow) : 
+                $Accordion = $AccordionRow['accordion'];
 
-            <!--Anfang accordeon mit title $Untertypname-->
-            
-                <h2> <?php echo $_SESSION["type"] ?> </h2> <!-- nur vorübergehend-->
-                <table>
-                    <tr><td>Produkt</td><td>Preis</td></tr>
+                $sqlMeal = "SELECT id, gericht, beschreibung, preis FROM `speisekarte` WHERE typ='$type' AND accordion='$Accordion'";   
+            ?>
 
-                    <?php foreach ($pdo->query($SQLProdukte) as $row) : ?>
-                        <tr>
-                            <td><?php echo $row['Produkt']; ?></td>
-                            <td><?php echo $row['Preis']; ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-
-                </table>
-
-            <!--Ende Accordeon -->
+            <button class='accordion'> <?php echo $Accordion ?> </button>
+                <div class='panel'>
+                    <table width=100%>
+                        <col width="20%" >
+                        <col width="60%">
+                        <col width="10%">
+                        <col width="10%">
+                        <tr><th> Gericht </th><th>Beschreibung</th><th>Preis</th><th>Bestellen</th></tr>
+                        <?php foreach ($pdo->query($sqlMeal) as $MealRow) : ?>
+                            <tr>
+                                <td style="text-align:left"><?php echo $MealRow['gericht'];?></td>
+                                <td style="text-align:center"><?php echo $MealRow['beschreibung'];?></td>
+                                <td style="text-align:center"><?php echo $MealRow['preis'];?> &euro; </td>
+                                <td style="text-align:center"> <button class="btnsmall" onClick="buy(' <?php echo $MealRow['id']; ?> ')">bestellen</button> </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
+ 
 
         <?php endforeach; ?>
     </body>
