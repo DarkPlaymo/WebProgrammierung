@@ -9,10 +9,7 @@
         <script src="../js/buy.js"></script>
     </head>
 
-    <body>  
-        <h2> Hallo </h2>
-        <h2> <?php echo $_SESSION["Typ"] ?> </h2>
-        
+    <body>          
         <?php   
             $type = $_SESSION['Typ'];
             $pdo = new PDO('mysql:host=127.0.0.1;port=3307;dbname=datenbank', 'root', 'root');
