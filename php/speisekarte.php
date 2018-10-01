@@ -35,7 +35,10 @@
                                 <td style="text-align:left"><?php echo $MealRow['gericht'];?></td>
                                 <td style="text-align:center"><?php echo $MealRow['beschreibung'];?></td>
                                 <td style="text-align:center"><?php echo $MealRow['preis'];?> &euro; </td>
-                                <td style="text-align:center"> <button class="btnsmall" onClick="buy(' <?php echo $MealRow['id']; ?> ')">bestellen</button> </td>
+                                <td style="text-align:center"> <button class="btnsmall" onClick="buy(' <?php echo $MealRow['id']; ?> ',
+                                                                                                       ' <?php echo $MealRow['gericht']; ?> ', 
+                                                                                                       ' <?php echo $MealRow['beschreibung']; ?> ', 
+                                                                                                       ' <?php echo $MealRow['preis']; ?> ')">bestellen</button> </td>
                             </tr>
                         <?php endforeach; ?>
                     </table>

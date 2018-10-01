@@ -46,8 +46,9 @@ $_SESSION['Waren'] = 0;?>
             </div>
 
             <div id="Warenkorb" class="tabcontent">
-                <h3>Warenkorb</h3>
-                <p>Liste der bestellten Waren</p>
+                <table id="TblWarenkorb" width=100%>
+                    <tbody id="TbodyWarenkorb"> </tbody>
+                </table>
             </div> 
         </div>
     </body>
