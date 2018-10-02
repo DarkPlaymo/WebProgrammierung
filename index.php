@@ -52,7 +52,9 @@
 
     <!-- Main Content -->
     <div class="main">
-        <?php include("php/" . $_GET['site'] . ".php") ?>
+        <?php 
+            if ($_GET['site']!=null){include("php/" . $_GET['site'] . ".php");}
+            else {include("php/login.php");} ?>
     </div>
 
     <!-- Footer -->
