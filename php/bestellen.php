@@ -1,5 +1,4 @@
-<?php session_start(); 
-$_SESSION['Waren'] = 0;?>
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
     <head>
