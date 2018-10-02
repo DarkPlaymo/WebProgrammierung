@@ -1,4 +1,8 @@
-var Warenkorb_json = {};
+var Warenkorb_json = {
+    id: {
+        meal: 5
+    }
+};
 
 function buy(id, gericht, beschreibung, preis) {
     var text = document.getElementById("btnWarenkorb").innerHTML;
@@ -18,14 +22,14 @@ function buy(id, gericht, beschreibung, preis) {
         }  
     }
 
-    alert(JSON.stringify(Warenkorb_json));
-
     createTable();
 }
 
 function createTable() {
     var tablebody = document.getElementById("TbodyWarenkorb");
-    tablebody.innerHTML = '<col width="10%"> <col width="15%"> <col width="50%"> <col width="10%"> <col width="15%"><tr><th> Anzahl </th><th> Gericht </th><th> Beschreibung </th><th> EinzelPreis </th><th> Gesamtpreis </th> </tr>';
+
+    tablebody.innerHTML = '<col width="10%"> <col width="15%"> <col width="50%"> <col width="10%"> <col width="15%"><tr><th> Anzahl </th><th> Gericht </th><th> Beschreibung </th><th> Einzelpreis </th><th> Gesamtpreis </th> </tr>';
+    
     for (i in Warenkorb_json) {
         tablebody.innerHTML += '<tr><td>' + Warenkorb_json[i].count + '</td><td>' + Warenkorb_json[i].meal + '</td><td>' + Warenkorb_json[i].description + '</td><td>' + Warenkorb_json[i].price + '</td><td>' + parseFloat(Warenkorb_json[i].count) * parseFloat(Warenkorb_json[i].price) + '</td></tr>'
     }

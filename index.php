@@ -26,7 +26,10 @@
     
     <div class="header">
         <div class="headerbar">
+        <?php if ($_GET['site']!=null) : ?>
             <button class="btn" onClick="openNav()"><i class="fa fa-bars"></i></button>
+        <?php  endif ?>
+            
         </div>
         <div class="headerlogo">
             <?php 
