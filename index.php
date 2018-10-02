@@ -19,11 +19,9 @@
         <a href="index.php?site=home">Home</a>
         <a href="index.php?site=bestellen">Bestellen</a>
     </div>
-
     
 
     <!-- Header -->
-    
     <div class="header">
         <div class="headerbar">
         <?php if ($_GET['site']!=null) : ?>
