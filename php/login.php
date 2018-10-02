@@ -7,37 +7,28 @@
     </head>
 
     <body>
-
-        <h2>Anmeldeformular</h2>
-
-        <form action="index.php">
-            <input type="hidden" name="site" value="home">
-            Nachname, Vorname*:<br>
-            <input type="text" name="name" value="">
-            <br><br>
-            Anzahl der Personen*:<br>
-            <input type="number" name="number" min="1" max="10" value="">
-            <br><br>
-            Wo möchten Sie sitzen?*:<br>
-            <div class="small-12 medium-6 large-6 columns">
-                <span class="wpcf7-form-control-wrap Tischauswahl">
-                    <select name="Tischauswahl" class="wpcf7-form-control wpcf7-select" id="Tischauswahl" aria-invalid="false">
-                        <option value="Keine Angabe">Keine Angabe</option>
-                        <option value="Tisch unten">Tisch unten</option>
-                        <option value="Tisch oben">Tisch oben</option>
-                        <option value="Terrasse">Terrasse</option>
-                    </select>
-                </span>
-            </div>
-            <br>
-            Nachricht:<br>
-            <input type="text" name="message" value="">
-            <br><br>
-            
-            <input type="submit" value="Submit">
-        </form> 
-
-        <p>If you click the "Submit" button, the form-data will be sent to a page called "bestellen.php".</p>
-
+        <div>
+            <form class="form" action="index.php">
+                <fieldset>
+                    <input type="hidden" name="site" value="home"> <!--Zur korrekten Weiterleitung -->
+                    <legend><span class="number">1</span> Anmelden </legend>
+                    <input type="text" name="name" placeholder="Ihr Name *">
+                    <input type="email" name="email" placeholder="Ihre Email *">
+                    
+                    <label for="Tischauswahl">Tischauswahl:</label>
+                    <select id="Tischauswahl" name="tisch">
+                            <option value="Keine Angabe">Keine Angabe</option>
+                            <option value="Tisch unten">Tisch unten</option>
+                            <option value="Tisch oben">Tisch oben</option>
+                            <option value="Terrasse">Terrasse</option>
+                    </select>      
+                </fieldset>
+                <fieldset>
+                    <legend><span class="number">2</span> Zusätzliche Notiz</legend>
+                    <textarea name="notiz" placeholder="Infos an uns..."></textarea>
+                </fieldset>
+                <input type="submit" value="Apply" />
+            </form>
+        </div>
     </body>
 </html> 
