@@ -26,7 +26,7 @@
         <div class="headerbar">
         <?php if ($_GET['site']!=null) : ?>
             <button class="btn" onClick="openNav()"><i class="fa fa-bars"></i></button>
-            <button class="btn" onClick="setCookie('login','false',365); window.location.href='/php/login.php';"><i class="fa fa-sign-out"></i></button>
+            <button class="btn" onClick="logout()"><i class="fa fa-sign-out"></i></button>
         <?php  endif ?>
             
         </div>

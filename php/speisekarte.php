@@ -12,7 +12,7 @@
     <body>          
         <?php   
             $type = $_SESSION['Typ'];
-            $pdo = new PDO('mysql:host=127.0.0.1;port=3307;dbname=datenbank;charset=UTF8', 'root', 'root');
+            $pdo = new PDO('mysql:host=localhost;dbname=datenbank;charset=UTF8', 'root', 'root');
         
             $sqlAccordion =  "SELECT DISTINCT accordion FROM `speisekarte` WHERE typ='$type'";
 
