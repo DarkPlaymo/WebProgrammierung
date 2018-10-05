@@ -15,7 +15,7 @@
                     <legend><span class="number">1</span> Anmelden </legend>
                     <input type="text" name="name" placeholder="Ihr Name *" required>
                     <input type="email" name="email" placeholder="Ihre Email *" required>
-                    <input type="number" name="number" min="1" max="10" placeholder="Anzahl an Personen *" required>
+                    <input type="number" name="persons" min="1" max="10" placeholder="Anzahl an Personen *" required>
                     
                     <label for="Tischauswahl">Tischauswahl:</label>
                     <select id="Tischauswahl" name="tisch">

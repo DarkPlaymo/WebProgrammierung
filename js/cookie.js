@@ -63,5 +63,4 @@ function orderFood() {
     bill = document.getElementById().innerText; //get the value of the textfield by ID
 
     setCookie("allbills", bill + getCookie(allbills), 365);
-    
 }
