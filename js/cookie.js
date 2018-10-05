@@ -63,27 +63,3 @@ function orderFood() {
 
     setCookie("allbills", bill + getCookie(allbills), 365);
 }
-
-// ~~~ Login/Logout ~~~ //
-function login(){
-    setCookie('login','true',2);
-    var str = [];
-    
-    //tisch nehmen
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            str = this.responseText;
-            alert(str[0]);
-            console.log(str[0]);
-          }
-        };
-        xhttp.open("GET", "../php/getfreeseat.php", true);
-        xhttp.send();
-}
-
-function logout(){
-    setCookie('login','false',365);
-    window.location.href = '/';
-    // Tisch freigeben
-}

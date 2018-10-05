@@ -43,8 +43,6 @@
                         <?php endforeach; ?>
                     </table>
                 </div>
- 
-
         <?php endforeach; ?>
     </body>
 </html>

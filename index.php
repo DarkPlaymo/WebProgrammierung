@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="js/sideNav.js"></script>
     <script src="js/cookie.js"></script>
+    <script src="js/seat.js"></script>
 </head>
 
 <body>
@@ -26,7 +27,7 @@
         <div class="headerbar">
         <?php if ($_GET['site']!=null) : ?>
             <button class="btn" onClick="openNav()"><i class="fa fa-bars"></i></button>
-            <button class="btn" onClick="logout()"><i class="fa fa-sign-out"></i></button>
+            <button class="btn" onClick="releaseSeat(); window.location.href='/'"><i class="fa fa-sign-out"></i></button>
         <?php  endif ?>
             
         </div>
@@ -34,7 +35,7 @@
             <?php 
                 switch($_GET['site']){
                     case "home": 
-                        echo "<h2> Das ist die Home-Seite </h2>"; 
+                        echo "<h2 id='tischheader'></h2>"; 
                         break;
                     case "bestellen": 
                         echo "<h2> Hier kann man bestellen </h2>"; 

@@ -9,7 +9,7 @@
 
     <body>
         <div>
-            <form name="loginForm" class="form" action="index.php" onsubmit="login()">
+            <form name="loginForm" class="form" action="index.php">
                 <fieldset>
                     <input type="hidden" name="site" value="home"> <!--Zur korrekten Weiterleitung -->
                     <legend><span class="number">1</span> Anmelden </legend>
