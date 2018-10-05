@@ -4,16 +4,17 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1;text/html; charset=utf-8">
         <link rel="stylesheet" href="../styles.css">
+        <script src="../js/cookie.js"></script>
     </head>
 
     <body>
         <div>
-            <form class="form" action="index.php">
+            <form name="loginForm" class="form" action="index.php" onsubmit="return setCookie('login','true',3)">
                 <fieldset>
                     <input type="hidden" name="site" value="home"> <!--Zur korrekten Weiterleitung -->
                     <legend><span class="number">1</span> Anmelden </legend>
-                    <input type="text" name="name" placeholder="Ihr Name *">
-                    <input type="email" name="email" placeholder="Ihre Email *">
+                    <input type="text" name="name" placeholder="Ihr Name *" required>
+                    <input type="email" name="email" placeholder="Ihre Email *" required>
                     
                     <label for="Tischauswahl">Tischauswahl:</label>
                     <select id="Tischauswahl" name="tisch">
