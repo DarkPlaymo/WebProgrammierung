@@ -18,8 +18,7 @@
                     <label for="Tischauswahl">Tischauswahl:</label>
                     <select id="Tischauswahl" name="tisch">
                             <option value="Keine Angabe">Keine Angabe</option>
-                            <option value="Tisch unten">Tisch unten</option>
-                            <option value="Tisch oben">Tisch oben</option>
+                            <option value="Restaurant">Restaurant</option>
                             <option value="Terrasse">Terrasse</option>
                     </select>      
                 </fieldset>

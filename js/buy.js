@@ -1,8 +1,4 @@
-var Warenkorb_json = {
-    id: {
-        meal: 5
-    }
-};
+var Warenkorb_json = {};
 
 function buy(id, gericht, beschreibung, preis) {
     var text = document.getElementById("btnWarenkorb").innerHTML;
@@ -21,7 +17,6 @@ function buy(id, gericht, beschreibung, preis) {
             count: 1
         }  
     }
-
     createTable();
 }
 
