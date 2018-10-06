@@ -13,9 +13,7 @@ window.onload = function(){
                         myseat = i;
                         break;
                     };
-                } 
-                document.getElementById("tischheader").innerHTML = "Sie haben Tischnummer " + myseat;
-                
+                }                
                 var persons = url.searchParams.get("persons");
                 var name = url.searchParams.get("name");
                 occupySeat(myseat, name, persons);

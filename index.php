@@ -35,7 +35,7 @@
             <?php 
                 switch($_GET['site']){
                     case "home": 
-                        echo "<h2 id='tischheader'></h2>"; 
+                        echo "<h2 id='tischheader'>Sie haben Tischnummer " . $_COOKIE["seat"] . "</h2>";
                         break;
                     case "bestellen": 
                         echo "<h2> Hier kann man bestellen </h2>"; 
@@ -54,6 +54,7 @@
     <div class="main">
         <?php 
             if ($_GET['site']!=null){include("php/" . $_GET['site'] . ".php");}
+            elseif ($_COOKIE['seat']!=null) {echo "<script>window.location.href='index.php?site=home';</script>";}
             else {include("php/login.php");} ?>
     </div>
 
