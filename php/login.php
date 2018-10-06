@@ -16,13 +16,7 @@
                     <input type="text" name="name" placeholder="Ihr Name *" required>
                     <input type="email" name="email" placeholder="Ihre Email *" required>
                     <input type="number" name="persons" min="1" max="10" placeholder="Anzahl an Personen *" required>
-                    
-                    <label for="Tischauswahl">Tischauswahl:</label>
-                    <select id="Tischauswahl" name="tisch">
-                            <option value="Keine Angabe">Keine Angabe</option>
-                            <option value="Restaurant">Restaurant</option>
-                            <option value="Terrasse">Terrasse</option>
-                    </select>      
+                    <input type="time" name="time" placeholder="Uhrzeit *" value="18:00" min="15:00" max="23:00" step="900" required>
                 </fieldset>
                 <fieldset>
                     <legend><span class="number">2</span> Zusätzliche Notiz</legend>

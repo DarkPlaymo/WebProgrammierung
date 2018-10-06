@@ -47,14 +47,14 @@ function createTable() {
 }
 
 function order(){
-    
+    //send order to db
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            $response = this.responseText;
-            alert($response);
-        }
-    };
     xmlhttp.open("GET", "../php/order.php?gerichte=" + gerichte + "&seat=" + getCookie("seat"), true);
     xmlhttp.send();
+
+    //clear/reset page
+    Warenkorb_json = {};
+    gerichte = [];
+    document.getElementById("Warenkorb").innerHTML = "<h2> Bestellung wurde angenommen :) </h2>";
+    document.getElementById("btnWarenkorb").innerHTML = "Warenkorb (0)";
 }
