@@ -180,6 +180,28 @@ cookie .closebtn {
     overflow: hidden;
 } 
 
+/* ~~~ Table ~~~ */
+td {
+    text-align: center;
+}
+
+/* ~~~ Warenkorb ~~~ */
+.warenkorb p{
+    margin:5px;
+    display:inline-block;
+    font-size:18px;
+}
+.btnbuy {
+    background-color: rgb(6, 150, 6);
+    margin: 0px;
+    border: none;
+    color: white;
+    padding: 3px 4px;
+    font-size: 12px;
+    cursor: pointer;
+    display:inline-block;
+}
+
 /* ~~~ Form ~~~ */
 .form{
     max-width: 500px;

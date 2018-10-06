@@ -44,10 +44,8 @@
                 ?>
             </div>
 
-            <div id="Warenkorb" class="tabcontent">
-                <table id="TblWarenkorb" width=100%>
-                    <tbody id="TbodyWarenkorb"> </tbody>
-                </table>
+            <div id="Warenkorb" class="tabcontent" style="text-align:Center">
+                
             </div> 
         </div>
     </body>

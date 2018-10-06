@@ -32,10 +32,10 @@
                         <tr><th> Gericht </th><th>Beschreibung</th><th>Preis</th><th>Bestellen</th></tr>
                         <?php foreach ($pdo->query($sqlMeal) as $MealRow) : ?>
                             <tr>
-                                <td style="text-align:left"><?php echo $MealRow['gericht'];?></td>
-                                <td style="text-align:center"><?php echo $MealRow['beschreibung'];?></td>
-                                <td style="text-align:center"><?php echo $MealRow['preis'];?> &euro; </td>
-                                <td style="text-align:center"> <button class="btnsmall" onClick="buy(' <?php echo $MealRow['id']; ?> ',
+                                <td><?php echo $MealRow['gericht'];?></td>
+                                <td><?php echo $MealRow['beschreibung'];?></td>
+                                <td><?php echo $MealRow['preis'];?> &euro; </td>
+                                <td> <button class="btnsmall" onClick="buy(' <?php echo $MealRow['id']; ?> ',
                                                                                                        ' <?php echo $MealRow['gericht']; ?> ', 
                                                                                                        ' <?php echo $MealRow['beschreibung']; ?> ', 
                                                                                                        ' <?php echo $MealRow['preis']; ?> ')">bestellen</button> </td>

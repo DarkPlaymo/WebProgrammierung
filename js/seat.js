@@ -6,7 +6,6 @@ window.onload = function(){
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 $response = this.responseText;
-                alert($response);
                 var myjson = JSON.parse($response);
                 for (i in myjson) {
                     if(myjson[i]['besetzt'] == 0){
