@@ -17,6 +17,9 @@ window.onload = function(){
                 var persons = url.searchParams.get("persons");
                 var name = url.searchParams.get("name");
                 occupySeat(myseat, name, persons);
+                if(document.getElementById("tischheader").innerHTML == "Sie haben Tischnummer "){
+                    document.getElementById("tischheader").innerHTML = "Sie haben Tischnummer " + myseat;
+                }
             }
         };
         xhttp.open("GET", "../php/getfreeseat.php", true);
@@ -38,9 +41,14 @@ function occupySeat(seat, name, persons){
 function releaseSeat(){
     seat = getCookie("seat");
     var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200){
+            setCookie("name", "", -1);
+            setCookie("persons", "", -1);
+            setCookie("seat", seat, -1);
+            window.location.href='/';
+        }
+    };
     xmlhttp.open("GET", "../php/occupyfreeseat.php?seat=" + seat + "&besetzen=0", true);
     xmlhttp.send();
-    setCookie("name", "", -1);
-    setCookie("persons", "", -1);
-    setCookie("seat", seat, -1);
 }

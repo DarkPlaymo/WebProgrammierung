@@ -27,7 +27,7 @@
         <div class="headerbar">
         <?php if ($_GET['site']!=null) : ?>
             <button class="btn" onClick="openNav()"><i class="fa fa-bars"></i></button>
-            <button class="btn" onClick="releaseSeat(); window.location.href='/'"><i class="fa fa-sign-out"></i></button>
+            <button class="btn" onClick="releaseSeat()"><i class="fa fa-sign-out"></i></button>
         <?php  endif ?>
             
         </div>
