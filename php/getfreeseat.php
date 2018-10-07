@@ -3,8 +3,8 @@
     $statement =  "SELECT id, besetzt FROM `tische`";
 
     foreach ($pdo->query($statement) as $row) {
-        $myarray[$row['id']]->besetzt = $row['besetzt'];        
+        $myarray2[$row['id']]->besetzt = $row['besetzt'];        
     }
     
-    echo json_encode($myarray);
+    echo json_encode($myarray2);
 ?>

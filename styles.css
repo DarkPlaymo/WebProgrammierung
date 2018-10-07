@@ -13,6 +13,11 @@ body {
     padding: 10px 20px 20px 20px;
 }
 
+#main {
+    align-content: center;
+    text-align: center;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -200,6 +205,26 @@ td {
     font-size: 12px;
     cursor: pointer;
     display:inline-block;
+}
+
+/* ~~~ Tables ~~~ */
+.table{
+    stroke:black;
+    stroke-width:2;
+}
+.table.ground{
+    opacity:0.5;
+    fill:grey;
+    stroke-width:5;
+}
+.table.occupied{
+    fill:rgb(255,100,50);
+}
+.table.free{
+    fill:rgb(50, 255, 100);
+}
+.table.my{
+    fill:rgb(200,100,255);
 }
 
 /* ~~~ Form ~~~ */

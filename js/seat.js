@@ -19,12 +19,13 @@ window.onload = function(){
                 if(document.getElementById("tischheader").innerHTML == "Sie haben Tischnummer "){
                     document.getElementById("tischheader").innerHTML = "Sie haben Tischnummer " + myseat;
                 }
+                
             }
         };
         xhttp.open("GET", "../php/getfreeseat.php", true);
         xhttp.send();
     }
-    
+    drawing();
 };
 
 

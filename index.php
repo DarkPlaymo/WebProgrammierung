@@ -11,6 +11,7 @@
     <script src="js/sideNav.js"></script>
     <script src="js/cookie.js"></script>
     <script src="js/seat.js"></script>
+    <script src="js/tables.js"></script>
 </head>
 
 <body>
@@ -51,11 +52,12 @@
     </div>
 
     <!-- Main Content -->
-    <div class="main">
+    <div id="main" class="main">
         <?php 
             if ($_GET['site']!=null){include("php/" . $_GET['site'] . ".php");}
             elseif ($_COOKIE['seat']!=null) {echo "<script>window.location.href='index.php?site=home';</script>";}
             else {include("php/login.php");} ?>
+        <svg id="mysvg" height="0" width="0"> </svg>
     </div>
 
     <!-- Footer -->
