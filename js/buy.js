@@ -55,6 +55,9 @@ function order(){
     //clear/reset page
     Warenkorb_json = {};
     gerichte = [];
-    document.getElementById("Warenkorb").innerHTML = "<h2> Bestellung wurde angenommen :) </h2>";
     document.getElementById("btnWarenkorb").innerHTML = "Warenkorb (0)";
+    
+    //refill page
+    document.getElementById("Warenkorb").innerHTML = "<h2> Bestellung wurde angenommen :) </h2>";
+    document.getElementById("Warenkorb").innerHTML += "<a href='https://www.chess.com/de/play/computer' target='_blank'><img src='../php/chess.php'></img></a>";
 }
