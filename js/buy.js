@@ -57,7 +57,7 @@ function createBillTable() {                                   //create Bill Tab
 function order(){                                              //Send Order to DB and change page
     //send order to db
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", "../php/insertOrder.php?gerichte=" + gerichte + "&seat=" + getCookie("seat"), true);
+    xmlhttp.open("GET", "../php/php-scripts/insertOrder.php?gerichte=" + gerichte + "&seat=" + getCookie("seat"), true);
     xmlhttp.send();
 
     //clear/reset page

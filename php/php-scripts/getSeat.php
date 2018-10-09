@@ -1,5 +1,5 @@
 <?php 
-    $pdo = new PDO('mysql:host=localhost;dbname=datenbank;charset=UTF8', 'root', 'root');
+    include("db.php");
     $statement =  "SELECT id, besetzt FROM `tische`";
 
     foreach ($pdo->query($statement) as $row) {

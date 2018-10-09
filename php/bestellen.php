@@ -44,7 +44,7 @@
             </div>
 
             <div id="Warenkorb" class="tabcontent" style="text-align:Center">
-                
+                <h2>Sie haben noch keine Gerichte im Warenkorb</h2>
             </div> 
         </div>
     </body>

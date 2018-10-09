@@ -24,7 +24,7 @@ function prepareSeat(){                             //Get first free seat and oc
                     }
                 }
             };
-            xhttp.open("GET", "../php/getSeat.php", true);
+            xhttp.open("GET", "../php/php-scripts/getSeat.php", true);
             xhttp.send(); 
         }
         createTablePlan();   
@@ -32,7 +32,7 @@ function prepareSeat(){                             //Get first free seat and oc
 }
 function occupySeat(seat, name, persons){           //Set Cookies | Update Seat in DB
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", "../php/updateSeat.php?seat=" + seat + "&name=" + name + "&persons=" + persons + "&besetzen=1", true);
+    xmlhttp.open("GET", "../php/php-scripts/updateSeat.php?seat=" + seat + "&name=" + name + "&persons=" + persons + "&besetzen=1", true);
     xmlhttp.send();
     setCookie("name", name);
     setCookie("persons", persons);
@@ -49,7 +49,7 @@ function releaseSeat(){                             //Delete Cookies | Update Se
             window.location.href='/';
         }
     };
-    xmlhttp.open("GET", "../php/updateSeat.php?seat=" + seat + "&besetzen=0", true);
+    xmlhttp.open("GET", "../php/php-scripts/updateSeat.php?seat=" + seat + "&besetzen=0", true);
     xmlhttp.send();
 }
 
@@ -82,7 +82,7 @@ function createTablePlan() {                        //Get Information, which tab
             drawSVG(TableArray);                
         }        
     };
-    xhttp.open("GET", "../php/getSeat.php", true);
+    xhttp.open("GET", "../php/php-scripts/getSeat.php", true);
     xhttp.send();
 }
 function drawSVG(TableArray){                       //TableArray = ["free", "besetzt", "free", ...]
