@@ -37,7 +37,6 @@ function drawing() {
     var h=1;
     
     var xhttp = new XMLHttpRequest();
-    
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             myjson = JSON.parse(this.responseText);

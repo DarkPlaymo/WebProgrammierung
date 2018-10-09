@@ -6,7 +6,7 @@ var cookieValue = 'on';                     // Value of cookie
 
 
 // ~~~ basic cookie functions ~~~ //
-function setCookie(cname, cvalue, exdays) {
+function setCookie(cname, cvalue, exdays=365) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires="+ d.toUTCString();
@@ -27,6 +27,9 @@ function getCookie(cname) {
         }
     }
     return "";
+}
+function removeCookie(cname){
+    setCookie(cname,"",-1);
 }
 
 // ~~~ Compliance-Cookie-Banner ~~~ //
