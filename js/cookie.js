@@ -1,5 +1,5 @@
-var dropCookie = true;                      // false disables the Cookie, allowing you to style the banner
-var cookieDuration = 2;                    // Number of days before the cookie expires, and the banner reappears
+//Variables for Compliance Cookie
+var cookieDuration = 2;                     // Number of days before the cookie expires, and the banner reappears
 var cookieName = 'complianceCookie';        // Name of cookie
 var cookieValue = 'on';                     // Value of cookie
 
@@ -10,12 +10,8 @@ function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires="+ d.toUTCString();
-
-    if(dropCookie){
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    }
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
-
 function getCookie(cname) {
     var nameEQ = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -33,8 +29,8 @@ function getCookie(cname) {
     return "";
 }
 
-// ~~~ Cookie-Banner ~~~ //
-function createDiv(){
+// ~~~ Compliance-Cookie-Banner ~~~ //
+function createCookieBanner(){
     var bodytag = document.getElementsByTagName('body')[0];
     var div = document.createElement('div');
     div.setAttribute('id','cookie-law');
@@ -46,20 +42,12 @@ function createDiv(){
      
     setCookie(window.cookieName,window.cookieValue, window.cookieDuration); // Create the cookie
 }
-window.onload = function(){
-    if(getCookie(window.cookieName) != window.cookieValue){
-        createDiv(); 
-    }
-}
 function removeCookieBanner(){
 	var element = document.getElementById('cookie-law');
 	element.parentNode.removeChild(element);
 }
-
-// ~~~ All Bills ~~~ //
-function orderFood() {
-    var bill = "";
-    bill = document.getElementById().innerText; //get the value of the textfield by ID
-
-    setCookie("allbills", bill + getCookie(allbills), 365);
+window.onload = function(){
+    if(getCookie(window.cookieName) != window.cookieValue){
+        createCookieBanner(); 
+    }
 }
