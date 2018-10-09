@@ -67,5 +67,6 @@ function order(){                                              //Send Order to D
     
     //refill page
     document.getElementById("Warenkorb").innerHTML = "<h2> Bestellung wurde angenommen :) </h2>";
-    document.getElementById("Warenkorb").innerHTML += "<a href='https://www.chess.com/de/play/computer' target='_blank'><img src='../php/chess.php'></img></a>";
+    document.getElementById("Warenkorb").innerHTML += "<a href='https://www.chess.com/de/play/computer' target='_blank'><img src='../php/chess.php'></img></a><br><br>";
+    document.getElementById("Warenkorb").innerHTML += "<a style='font-size:25px' href='http://localhost:8080/Webprogrammierung' target='_blank'>Rechnung ausdrucken</a>";
 }

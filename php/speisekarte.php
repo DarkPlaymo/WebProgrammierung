@@ -9,7 +9,7 @@
     <body>          
         <?php   
             $type = $_SESSION['Typ'];
-            $pdo = new PDO('mysql:host=localhost;dbname=datenbank;charset=UTF8', 'root', 'root');
+            include("php-scripts/db.php");
         
             $sqlAccordion =  "SELECT DISTINCT accordion FROM `speisekarte` WHERE typ='$type'";
 

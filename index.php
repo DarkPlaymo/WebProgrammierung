@@ -12,6 +12,7 @@
     <script src="js/seat.js"></script>
     <script src="js/controller.js"></script>
     <script src="js/buy.js"></script>
+    <script src="js/serve.js"></script>
 </head>
 
 <body>
@@ -26,8 +27,10 @@
     <!-- Header -->
     <div class="header">
         <div class="headerbar">
-        <?php if ($_GET['site']!=null) : ?>
+        <?php if ($_GET['site']!="kueche" && $_GET['site']!=null) : ?>
             <button class="btn" onClick="openNav()"><i class="fa fa-bars"></i></button>
+        <?php endif; ?>
+        <?php if ($_GET['site']!=null) : ?>
             <button class="btn" onClick="releaseSeat()"><i class="fa fa-sign-out"></i></button>
         <?php  endif ?>
             
@@ -40,6 +43,9 @@
                         break;
                     case "bestellen": 
                         echo "<h2> Hier kann man bestellen </h2>"; 
+                        break;
+                    case "kueche": 
+                        echo "<h2> Küchenbereich </h2>"; 
                         break;
                     case null: 
                         echo "<h2> Startseite </h2>"; 

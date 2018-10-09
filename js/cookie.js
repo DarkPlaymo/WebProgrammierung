@@ -19,7 +19,7 @@ function getCookie(cname) {
             return c.substring(nameEQ.length, c.length);
         }
     }
-    return "";
+    return null;
 }
 function removeCookie(cname){
     setCookie(cname,"",-1);

@@ -23,6 +23,7 @@
                 </fieldset>
                 <input type="submit" value="Apply" />
             </form>
+            <a href="index.php?site=kueche">Mitarbeiter-Login</a>
         </div>
     </body>
 </html> 

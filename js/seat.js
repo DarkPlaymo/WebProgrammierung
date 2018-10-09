@@ -1,33 +1,36 @@
 //Release/Occupy Seat
 function prepareSeat(){                             //Get first free seat and occupy it
+    var myseat = -1;
     var url = new URL(window.location.href);
-    if (url.searchParams.get("site")=='home'){
-        if(!getCookie("seat")){
-            var myseat = -1;
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    var TableJson = JSON.parse(this.responseText);
-                    for (i in TableJson) {
-                        if(TableJson[i]['besetzt'] == 0){
-                            myseat = i;
-                            break;
-                        };
-                    }                
-                    var persons = url.searchParams.get("persons");
-                    var name = url.searchParams.get("name");
-                    occupySeat(myseat, name, persons);
+    var site = url.searchParams.get("site");
+    if (site =='home'){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var TableJson = JSON.parse(this.responseText);
+                for (i in TableJson) {
+                    if(TableJson[i]['besetzt'] == 0){
+                        myseat = i;
+                        break;
+                    };
+                }                
+                var persons = url.searchParams.get("persons");
+                var name = url.searchParams.get("name");
+                occupySeat(myseat, name, persons);
 
-                    //if header is not set by cookie, set it manually
-                    if(document.getElementById("tischheader").innerHTML == "Sie haben Tischnummer "){
-                        document.getElementById("tischheader").innerHTML = "Sie haben Tischnummer " + myseat;
-                    }
+                //if header is not set by cookie, set it manually
+                if(document.getElementById("tischheader").innerHTML == "Sie haben Tischnummer "){
+                    document.getElementById("tischheader").innerHTML = "Sie haben Tischnummer " + myseat;
                 }
-            };
-            xhttp.open("GET", "../php/php-scripts/getSeat.php", true);
-            xhttp.send(); 
-        }
+            }
+        };
+        xhttp.open("GET", "../php/php-scripts/getSeat.php", true);
+        xhttp.send(); 
+
         createTablePlan();   
+    } 
+    if (site == 'kueche') {
+        createTablePlan(); 
     }
 }
 function occupySeat(seat, name, persons){           //Set Cookies | Update Seat in DB
@@ -58,7 +61,7 @@ function createTablePlan() {                        //Get Information, which tab
     var TableJson={};   //TableJson = {"1":{ 'besetzt': "0"}, "2":{ 'besetzt': "1"}, "3":{ 'besetzt': "0"} ...}
     var TableArray=[];  //TableArray = ["free", "besetzt", "free", ...]
     var helpID=1;
-    
+
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {

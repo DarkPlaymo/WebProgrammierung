@@ -189,6 +189,12 @@ cookie .closebtn {
 td {
     text-align: center;
 }
+table#kueche td{
+    border: 1px solid black;
+}
+table#kueche th, table#kueche{
+    border: 3px solid black;
+}
 
 /* ~~~ Warenkorb ~~~ */
 .warenkorb p{
