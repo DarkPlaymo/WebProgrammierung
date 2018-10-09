@@ -1,10 +1,3 @@
-//Variables for Compliance Cookie
-var cookieDuration = 2;                     // Number of days before the cookie expires, and the banner reappears
-var cookieName = 'complianceCookie';        // Name of cookie
-var cookieValue = 'on';                     // Value of cookie
-
-
-
 // ~~~ basic cookie functions ~~~ //
 function setCookie(cname, cvalue, exdays=365) {
     var d = new Date();
@@ -43,14 +36,14 @@ function createCookieBanner(){
      
     document.getElementsByTagName('body')[0].className+=' cookiebanner'; //Adds a class to the <body> tag when the banner is visible
      
-    setCookie(window.cookieName,window.cookieValue, window.cookieDuration); // Create the cookie
+    setCookie('complianceCookie','on'); // Create the compliance-cookie
 }
 function removeCookieBanner(){
 	var element = document.getElementById('cookie-law');
 	element.parentNode.removeChild(element);
 }
-window.onload = function(){
-    if(getCookie(window.cookieName) != window.cookieValue){
+function checkCookiebanner(){
+    if(getCookie('complianceCookie') != 'on'){
         createCookieBanner(); 
     }
 }

@@ -14,7 +14,6 @@
         $statement =  "UPDATE `tische` SET `besetzt` = '0', `name`=NULL, `personen`=NULL WHERE `tische`.`id`=? ";
         $pdo->prepare($statement)->execute([$id]);
     }
-    
 
     $pdo->prepare($statement)->execute([$name, $personen, $id]);
 

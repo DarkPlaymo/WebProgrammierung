@@ -8,11 +8,11 @@
 
     <body>
         <div class="tabs">
-            <button class="tablink" onclick="openPage('Vorspeise', this, 'red')" id="defaultOpen">Vorspeise</button>
-            <button class="tablink" onclick="openPage('Hauptspeise', this, 'green')">Hauptspeise</button>
-            <button class="tablink" onclick="openPage('Dessert', this, 'blue')">Dessert</button>
-            <button class="tablink" onclick="openPage('Getränke', this, 'orange')">Getränke</button>
-            <button class="tablink" onclick="openPage('Warenkorb', this, 'grey')" id=btnWarenkorb>Warenkorb (0)</button>
+            <button class="tablink" onclick="openTab('Vorspeise', this, 'red')" id="defaultTab">Vorspeise</button>
+            <button class="tablink" onclick="openTab('Hauptspeise', this, 'green')">Hauptspeise</button>
+            <button class="tablink" onclick="openTab('Dessert', this, 'blue')">Dessert</button>
+            <button class="tablink" onclick="openTab('Getränke', this, 'orange')">Getränke</button>
+            <button class="tablink" onclick="openTab('Warenkorb', this, 'grey')" id=btnWarenkorb>Warenkorb (0)</button>
             
 
             <div id="Vorspeise" class="tabcontent">

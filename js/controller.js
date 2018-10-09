@@ -1,5 +1,5 @@
 //Tabs
-function openPage(pageName, elmnt, color) {
+function openTab(tabname, elmnt, color) {
     // Hide all elements with class="tabcontent" by default */
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -14,10 +14,16 @@ function openPage(pageName, elmnt, color) {
     }
 
     // Show the specific tab content
-    document.getElementById(pageName).style.display = "block";
+    document.getElementById(tabname).style.display = "block";
 
     // Add the specific color to the button used to open the tab content
     elmnt.style.backgroundColor = color;
+}
+function prepareTab(){
+    var defaultTab = document.getElementById("defaultTab");
+    if(defaultTab!=null) {
+        defaultTab.click();
+    }
 }
 
 // Navigation
@@ -48,12 +54,14 @@ function activateAccordionController() {
 
 window.onload = function () { 
     //Tabs
-    var defaultTab = document.getElementById("defaultOpen");
-    if(defaultTab!=null) {defaultTab.click();}
+    prepareTab();
 
     //Seat
-    prepareseat();
+    prepareSeat();
 
     //Accordion
     activateAccordionController();
+
+    //Cookiebanner
+    checkCookiebanner();
 }
