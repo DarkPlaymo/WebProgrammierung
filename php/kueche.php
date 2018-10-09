@@ -13,6 +13,7 @@
         
             $sqlSeat =  "SELECT tisch_id, COUNT(tisch_id) AS AnzahlBestellungen FROM `bestellungen` GROUP BY tisch_id";
         ?>
+        <h3>Zuzubereitende Gerichte</h3>
         <table id="kueche" style="width:100%;border-collapse:collapse;" >
             <tr>
                 <th>Tisch</th>
@@ -40,5 +41,6 @@
                 <td><button class="btnsmall" onClick="serve(<?php echo $orderID; ?>)">servieren</button></tr>
                 <?php endforeach; endforeach; ?>
         </table>
+        <h3 style="margin-top: 25px;margin-bottom: 0px;">Sitzplätze</h3>
     </body>
 </html> 

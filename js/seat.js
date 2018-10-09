@@ -94,10 +94,10 @@ function drawSVG(TableArray){                       //TableArray = ["free", "bes
     var ground = document.createElementNS(xmlns, "rect");
 
     //make "mysvg" visible
-    setAttributes(svg, {"height":"525", "width":"525"});
+    setAttributes(svg, {"height":"510", "width":"510"});
 
     //Rectangle = Restaurant-Ground
-    setAttributes(ground, {"id":"ground", "class":"table ground", "rx":"15", "ry":"15", "width":"475", "height":"475", "x":"25", "y":"25"});
+    setAttributes(ground, {"id":"ground", "class":"table ground", "rx":"15", "ry":"15", "width":"475", "height":"475", "x":"17", "y":"17"});
     svg.appendChild(ground);
 
     //Change x and y for each Table => Verschiebung
