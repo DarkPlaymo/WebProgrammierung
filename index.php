@@ -63,7 +63,7 @@
             if ($_GET['site']!=null){include("php/" . $_GET['site'] . ".php");}
             elseif ($_COOKIE['seat']!=null) {echo "<script>window.location.href='index.php?site=home';</script>";}
             else {include("php/login.php");} ?>
-        <svg id="mysvg" height="0" width="0"> </svg>
+        <svg id="MySVG" height="0" width="0"> </svg>
     </div>
 
     <!-- Footer -->

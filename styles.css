@@ -141,26 +141,21 @@ height: 100%;
     color:#682008; 
     margin:0;
 }
-cookie a {
+cookie a.closebtn{
     padding: 8px 8px 8px 8px;
-    text-decoration: none;
-    font-size: 10px;
-    color: black;
-    background-color: #EEEADD;
-    display: block;
-    transition: 0.3s;
-}
-cookie a:hover {
-    color: #333;
-}
-cookie .closebtn {
     position: absolute;
+    text-decoration: none;
     top: 10px;
     right: 25px;
     font-size: 20px;
     margin-left: 50px;
     background-color: #EEEADD;
     color: black;
+    display: block;
+    transition: 0.3s;
+}
+cookie a.closebtn:hover {
+    color: red;
 }
 
 /* ~~~ Accordion ~~~ */

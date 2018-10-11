@@ -1,48 +1,70 @@
 //Release/Occupy Seat
 function prepareSeat(){                             //Get first free seat and occupy it
     var myseat = -1;
-    var url = new URL(window.location.href);
-    var site = url.searchParams.get("site");
-    if (site =='home'){
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                var TableJson = JSON.parse(this.responseText);
-                for (i in TableJson) {
-                    if(TableJson[i]['besetzt'] == 0){
-                        myseat = i;
-                        break;
-                    };
-                }                
-                var persons = url.searchParams.get("persons");
-                var name = url.searchParams.get("name");
-                occupySeat(myseat, name, persons);
 
-                //if header is not set by cookie, set it manually
-                if(document.getElementById("tischheader").innerHTML == "Sie haben Tischnummer "){
-                    document.getElementById("tischheader").innerHTML = "Sie haben Tischnummer " + myseat;
+    //Parameters from the url, set by the php_GET
+    var parameters = new URL(window.location.href).searchParams,
+        site = parameters.get("site"),
+        persons = parameters.get("persons"),
+        name = parameters.get("name");
+
+    //If Home and Cookie undefined => CreateTablePlan with free seat
+    if (site =='home'){                             
+        if(getCookie('seat')==undefined){           
+            var xhttp = new XMLHttpRequest();
+            //get free seat
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var TableJson = JSON.parse(this.responseText);
+                    for (i in TableJson) {
+                        if(TableJson[i]['besetzt'] == 0){
+                            myseat = i;
+                            break;
+                        };
+                    }
+                    //occupy the free Seat with the Infos of the Login and createTablePlan with the free Seat
+                    occupySeat(myseat, name, persons);
+                    createTablePlan(myseat);  
+                    
+                    //Manipulate Tischheader (because Cookie is not set)
+                    document.getElementById("tischheader").innerHTML += myseat;
                 }
-            }
-        };
-        xhttp.open("GET", "../php/php-scripts/getSeat.php", true);
-        xhttp.send(); 
+            };
+            xhttp.open("GET", "../php/php-scripts/getSeat.php", true);
+            xhttp.send();  
+        } 
 
-        createTablePlan();   
+        //If Home and Cookie set => CreateTablePlan with Cookie
+        else {                                   
+            createTablePlan();
+        } 
     } 
-    if (site == 'kueche') {
+
+    //If Kueche => CreateTablePlan without own Table
+    if (site == 'kueche') {                        
         createTablePlan(); 
     }
 }
 function occupySeat(seat, name, persons){           //Set Cookies | Update Seat in DB
+    //Update Seat in DB
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", "../php/php-scripts/updateSeat.php?seat=" + seat + "&name=" + name + "&persons=" + persons + "&besetzen=1", true);
     xmlhttp.send();
+
+    //Set Cookies
     setCookie("name", name);
     setCookie("persons", persons);
     setCookie("seat", seat);
 }
-function releaseSeat(){                             //Delete Cookies | Update Seat in DB | redirect to login-page
+function releaseSeat(){                             //Delete Cookies | Update Seat in DB | Delete Orders | redirect to login-page
     seat = getCookie("seat");
+
+    //Delete Orders of this seat in DB
+    var xmlhttp2 = new XMLHttpRequest();
+    xmlhttp2.open("GET", "../php/php-scripts/deleteOrder.php?id=" + seat, true);
+    xmlhttp2.send();
+
+    //Update/release Seat in DB and delete Cookies in Browser
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200){
@@ -57,15 +79,18 @@ function releaseSeat(){                             //Delete Cookies | Update Se
 }
 
 //Table-Plan
-function createTablePlan() {                        //Get Information, which tables are free/occupied/my and draw SVG
+function createTablePlan(myseat = 0) {                        //Get Information, which tables are free/occupied/my and draw SVG
     var TableJson={};   //TableJson = {"1":{ 'besetzt': "0"}, "2":{ 'besetzt': "1"}, "3":{ 'besetzt': "0"} ...}
-    var TableArray=[];  //TableArray = ["free", "besetzt", "free", ...]
-    var helpID=1;
+    var TableArray=[];  //TableArray = ["free", "besetzt", "free", "my", "besetzt",...]
+    var helpID=1;       //for index in array (index in JSON is a String) => JSON["1"] = Array[1]
 
+    //Get Tables from DB
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             TableJson = JSON.parse(this.responseText);
+
+            //fill TableArray with own seat (if you have a own seat)
             for (i in TableJson) {
                 switch(TableJson[i]['besetzt']){
                     case "0":{
@@ -77,11 +102,13 @@ function createTablePlan() {                        //Get Information, which tab
                         break;
                     }
                 }
-                if (i == String(getCookie("seat"))){
+                if (i == String(getCookie("seat") || i == String(myseat))){
                     TableArray[helpID] = "my";
                 }
                 helpID++;
             }
+
+            //draw SVG with information, which seats are free, occupied, ownseat
             drawSVG(TableArray);                
         }        
     };
@@ -90,13 +117,13 @@ function createTablePlan() {                        //Get Information, which tab
 }
 function drawSVG(TableArray){                       //TableArray = ["free", "besetzt", "free", ...]
     var xmlns="http://www.w3.org/2000/svg";
-    var svg = document.getElementById("mysvg");
-    var ground = document.createElementNS(xmlns, "rect");
-
-    //make "mysvg" visible
+    
+    //get "MySVG" and make it visible
+    var svg = document.getElementById("MySVG");
     setAttributes(svg, {"height":"510", "width":"510"});
 
     //Rectangle = Restaurant-Ground
+    var ground = document.createElementNS(xmlns, "rect");
     setAttributes(ground, {"id":"ground", "class":"table ground", "rx":"15", "ry":"15", "width":"475", "height":"475", "x":"17", "y":"17"});
     svg.appendChild(ground);
 
@@ -116,7 +143,8 @@ function drawSVG(TableArray){                       //TableArray = ["free", "bes
             var text = document.createElementNS(xmlns, "text");
             setAttributes(text, {"x":String(x+50), "y":String(y+50), "font-size":"30px"});
             text.textContent= String(id);
-      
+            
+            //add Table and Table-Nr. to MySVG
             svg.appendChild(rect);
             svg.appendChild(text);
         }

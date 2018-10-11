@@ -1,25 +1,25 @@
 //Tabs
 function openTab(tabname, elmnt, color) {
-    // Hide all elements with class="tabcontent" by default */
     var i, tabcontent, tablinks;
+
+    // Hide all Tabcontents by default
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
     }
 
-    // Remove the background color of all tablinks/buttons
+    // Remove the background color of all Tablinks (Buttons)
     tablinks = document.getElementsByClassName("tablink");
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].style.backgroundColor = "";
     }
 
-    // Show the specific tab content
+    // Show the specific Tabcontent and add background-color to Tablink
     document.getElementById(tabname).style.display = "block";
-
-    // Add the specific color to the button used to open the tab content
     elmnt.style.backgroundColor = color;
 }
 function prepareTab(){
+    //open DefaultTab
     var defaultTab = document.getElementById("defaultTab");
     if(defaultTab!=null) {
         defaultTab.click();
